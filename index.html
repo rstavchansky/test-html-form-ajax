@@ -32,10 +32,12 @@
   </form>  
 
   <script>  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      let myForm = document.getElementById("pizzaOrder");
-      let formData = new FormData(myForm);
+    const handleSubmit = (event) => {
+      event.preventDefault();
+
+      const myForm = event.target;
+      const formData = new FormData(myForm);
+      
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
